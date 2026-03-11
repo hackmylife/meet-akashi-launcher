@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet Akashi Launcher</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <h1 class="header-title">Meet Akashi Launcher</h1>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- Akashi attendance status -->
+    <section class="status-section" id="attendanceStatus">
+      <div class="status-icon" id="statusIcon">-</div>
+      <div class="status-content">
+        <div class="status-title" id="statusTitle">確認中...</div>
+        <div class="status-subtitle" id="statusSubtitle"></div>
+        <div class="status-action" id="statusAction"></div>
+      </div>
+    </section>
+
+    <!-- Today's meetings -->
+    <section class="meetings-section">
+      <div class="section-header">
+        <h2 class="section-title">今日の会議</h2>
+        <button class="btn-icon" id="refreshBtn" title="更新">&#x21bb;</button>
+      </div>
+      <div class="meetings-list" id="meetingsList">
+        <div class="empty-state" id="emptyState">
+          <div class="empty-text">読み込み中...</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="fab-punch" id="fabPunch" style="display:none;"></div>
+
+  <footer class="footer">
+    <button class="footer-link" id="loginBtn">Google ログイン</button>
+    <a class="footer-link" id="settingsLink">&#x2699; 設定</a>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

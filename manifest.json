@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "Meet Akashi Launcher",
+  "version": "1.0.0",
+  "description": "Google MeetとAkashi勤怠管理を統合するChrome拡張",
+
+  "permissions": [
+    "alarms",
+    "notifications",
+    "storage",
+    "identity"
+  ],
+
+  "host_permissions": [
+    "https://www.googleapis.com/*",
+    "https://atnd.ak4.jp/*"
+  ],
+
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://atnd.ak4.jp/*"],
+      "js": ["content/content-akashi.js"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+
+  "options_page": "options/options.html",
+
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>設定 - Meet Akashi Launcher</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <header class="options-header">
+    <div class="container">
+      <h1 class="options-title">Meet Akashi Launcher - 設定</h1>
+    </div>
+  </header>
+
+  <main class="options-main">
+    <div class="container">
+      <!-- Google account -->
+      <section class="settings-card">
+        <h2 class="settings-title">Google アカウント</h2>
+        <div class="account-info" id="accountInfo">
+          <span class="status-badge" id="accountBadge">未接続</span>
+          <button class="btn btn-primary" id="connectBtn">Google に接続</button>
+        </div>
+      </section>
+
+      <!-- Akashi settings -->
+      <section class="settings-card">
+        <h2 class="settings-title">Akashi 設定</h2>
+        <div class="form-group">
+          <label for="akashiUrl" class="form-label">Akashi URL</label>
+          <input type="url" id="akashiUrl" class="form-input"
+                 placeholder="https://atnd.ak4.jp">
+          <div class="form-hint">あなたの会社の Akashi URL を入力してください</div>
+        </div>
+      </section>
+
+      <!-- Notification settings -->
+      <section class="settings-card">
+        <h2 class="settings-title">通知設定</h2>
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="notifyAkashi">
+            <span>出勤リマインド通知を有効にする</span>
+          </label>
+        </div>
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="autoOpenMeet">
+            <span>会議の自動オープンを有効にする</span>
+          </label>
+        </div>
+        <div class="form-group">
+          <label class="form-label">会議オープンのタイミング</label>
+          <div class="input-group">
+            <span>会議開始</span>
+            <input type="number" id="meetOpenTiming" class="form-input form-input-sm"
+                   value="60" min="10" max="300">
+            <span>秒前にオープン</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Meet ウィンドウサイズ</label>
+          <div class="input-group">
+            <span>幅</span>
+            <input type="number" id="meetWindowWidth" class="form-input form-input-sm"
+                   value="1280" min="400" max="3840">
+            <span>x 高さ</span>
+            <input type="number" id="meetWindowHeight" class="form-input form-input-sm"
+                   value="800" min="300" max="2160">
+            <span>px</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button class="btn btn-primary btn-lg" id="saveBtn">保存する</button>
+        <span class="save-status" id="saveStatus"></span>
+      </div>
+    </div>
+  </main>
+
+  <script src="options.js"></script>
+</body>
+</html>
