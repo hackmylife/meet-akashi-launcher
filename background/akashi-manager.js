@@ -11,6 +11,12 @@ export class AkashiManager {
   static async checkAkashiStatus() {
     const settings = await StorageManager.getSettings();
 
+    if (!settings.enableAkashi) {
+      // Clear badge when Akashi check is disabled
+      await this.updateBadge(AKASHI_STATUS.CLOCKED_IN, false);
+      return;
+    }
+
     // Try to update daily attendance from Akashi tab
     await this.tryUpdateFromTab(settings);
 
@@ -109,9 +115,7 @@ export class AkashiManager {
     if (attendance.clockedOut) {
       effectiveStatus = AKASHI_STATUS.CLOCKED_OUT;
     } else if (isAfter18) {
-      effectiveStatus = attendance.clockedIn
-        ? AKASHI_STATUS.NOT_CLOCKED_OUT
-        : AKASHI_STATUS.NOT_CLOCKED_OUT;
+      effectiveStatus = AKASHI_STATUS.NOT_CLOCKED_OUT;
     } else {
       effectiveStatus = attendance.clockedIn
         ? AKASHI_STATUS.CLOCKED_IN

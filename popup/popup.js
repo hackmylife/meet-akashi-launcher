@@ -72,7 +72,13 @@ document.addEventListener('DOMContentLoaded', () => {
       currentSettings = resp.settings || {};
 
       currentSkipped = resp.skippedMeetings || [];
-      renderAkashiStatus(resp.akashiStatus);
+      if (currentSettings.enableAkashi !== false) {
+        statusSection.style.display = '';
+        renderAkashiStatus(resp.akashiStatus);
+      } else {
+        statusSection.style.display = 'none';
+        fabPunch.style.display = 'none';
+      }
       renderMeetings(resp.events || []);
     });
   }

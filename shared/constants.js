@@ -55,6 +55,7 @@ export const STORAGE_KEYS = {
 
 // Default settings
 export const DEFAULT_SETTINGS = {
+  enableAkashi: true,
   autoOpenMeet: true,
   notifyAkashi: true,
   meetOpenTiming: 60,       // seconds before meeting

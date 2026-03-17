@@ -5,6 +5,7 @@ const MESSAGE_TYPES = {
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
+  const enableAkashiCheckbox = document.getElementById('enableAkashi');
   const akashiUrlInput = document.getElementById('akashiUrl');
   const notifyAkashiCheckbox = document.getElementById('notifyAkashi');
   const autoOpenMeetCheckbox = document.getElementById('autoOpenMeet');
@@ -79,6 +80,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     const settings = {
+      enableAkashi: enableAkashiCheckbox.checked,
       akashiUrl,
       notifyAkashi: notifyAkashiCheckbox.checked,
       autoOpenMeet: autoOpenMeetCheckbox.checked,
@@ -104,6 +106,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   function populateForm(settings) {
+    enableAkashiCheckbox.checked = settings.enableAkashi !== false;
     akashiUrlInput.value = settings.akashiUrl || 'https://atnd.ak4.jp';
     notifyAkashiCheckbox.checked = settings.notifyAkashi !== false;
     autoOpenMeetCheckbox.checked = settings.autoOpenMeet !== false;
