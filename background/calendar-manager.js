@@ -1,5 +1,5 @@
 import { CALENDAR } from '../shared/constants.js';
-import { OAUTH_CLIENT_ID, OAUTH_CLIENT_SECRET } from '../shared/config.js';
+import { OAUTH_CLIENT_ID } from '../shared/config.js';
 import { extractMeetUrl } from '../shared/utils.js';
 import { StorageManager } from './storage-manager.js';
 const REDIRECT_URI = `https://${chrome.runtime.id}.chromiumapp.org/`;
@@ -85,10 +85,6 @@ export class CalendarManager {
       client_id: OAUTH_CLIENT_ID,
       code_verifier: codeVerifier,
     };
-    if (OAUTH_CLIENT_SECRET) {
-      params.client_secret = OAUTH_CLIENT_SECRET;
-    }
-
     const response = await fetch(TOKEN_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -148,10 +144,6 @@ export class CalendarManager {
           refresh_token: refreshToken,
           client_id: OAUTH_CLIENT_ID,
         };
-        if (OAUTH_CLIENT_SECRET) {
-          params.client_secret = OAUTH_CLIENT_SECRET;
-        }
-
         const response = await fetch(TOKEN_ENDPOINT, {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
