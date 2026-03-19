@@ -27,9 +27,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.error('Failed to load settings:', err);
   }
 
-  // Check Google auth status via storage
-  chrome.storage.local.get(['oauth_access_token', 'oauth_token_expiry'], (data) => {
-    if (data.oauth_access_token && Date.now() < (data.oauth_token_expiry || 0)) {
+  // Check Google auth status via chrome.identity
+  chrome.identity.getAuthToken({ interactive: false }, (token) => {
+    if (token) {
       accountBadge.textContent = '接続済み';
       accountBadge.className = 'status-badge status-badge-success';
       connectBtn.textContent = '再接続';

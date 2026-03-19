@@ -48,6 +48,13 @@
     "128": "icons/icon128.png"
   },
 
+  "oauth2": {
+    "client_id": "743633491290-i56f5hq52du23g1b7ri330fo8mupc7cr.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/calendar.readonly"
+    ]
+  },
+
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'"
   }
